@@ -1,0 +1,36 @@
+workflows:
+  android-ios-release:
+    name: Splitz Android & iOS Release Build
+    instance_type: mac_mini_m1
+    max_build_duration: 60
+    environment:
+      flutter: stable
+      groups:
+        - google_play_credentials
+        - apple_credentials
+        - supabase_env
+    scripts:
+      - name: Set up .env file
+        script: |
+          echo "SUPABASE_URL=$SUPABASE_URL" > .env
+          echo "SUPABASE_ANON_KEY=$SUPABASE_ANON_KEY" >> .env
+          echo "FIREBASE_PROJECT_ID=$FIREBASE_PROJECT_ID" >> .env
+      - name: Install dependencies
+        script: |
+          flutter packages pub get
+      - name: Build Android Release
+        script: |
+          flutter build apk --release
+      - name: Build iOS Release
+        script: |
+          flutter build ipa --release --export-options-plist=ios/ExportOptions.plist
+    artifacts:
+      - build/app/outputs/flutter-apk/app-release.apk
+      - build/ios/ipa/*.ipa
+    publishing:
+      email:
+        recipients:
+          - you@example.com
+        notify:
+          success: true
+          failure: true
