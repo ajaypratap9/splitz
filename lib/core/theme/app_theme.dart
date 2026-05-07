@@ -31,7 +31,7 @@ class SplitzTheme {
         iconTheme: const IconThemeData(color: SplitzColors.darkText),
         systemOverlayStyle: SystemUiOverlayStyle.light,
       ),
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         color: SplitzColors.darkCardBg,
         elevation: 0,
         shape: RoundedRectangleBorder(
@@ -152,7 +152,7 @@ class SplitzTheme {
         iconTheme: const IconThemeData(color: SplitzColors.lightText),
         systemOverlayStyle: SystemUiOverlayStyle.dark,
       ),
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         color: SplitzColors.lightCardBg,
         elevation: 0,
         shape: RoundedRectangleBorder(

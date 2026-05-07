@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:supabase_flutter/supabase_flutter.dart' hide AuthException;
 import '../../../../core/config/supabase_config.dart';
 import '../../../../core/errors/app_exception.dart';
 import '../models/user_model.dart';

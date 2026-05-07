@@ -1,4 +1,4 @@
-import '../entities/settlement_entity.dart';
+import 'entities/settlement_entity.dart';
 
 /// Greedy settlement calculator — minimizes number of transactions
 class SettlementCalculator {
